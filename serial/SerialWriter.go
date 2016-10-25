@@ -22,20 +22,6 @@ func (d Data) WriteBoolean(ptr int, v bool) int {
 	return d.WriteByte(ptr, 0)
 }
 
-// Aliases
-func (d Data) WriteByte(ptr int, v byte) int {
-	d[ptr] = v; ptr++
-	return ptr
-}
-
-func (d Data) WriteRune(ptr int, v rune) int {
-	return d.WriteInt32(ptr, int32(v))
-}
-
-func (d Data) WriteInt(ptr, v int) int {
-	return d.WriteInt32(ptr, int32(v))
-}
-
 // 8 bits integer
 func (d Data) WriteInt8(ptr int, v int8) int {
 	return d.WriteByte(ptr, byte(v))
@@ -120,6 +106,20 @@ func (d Data) WriteComplex64(ptr int, v complex64) int {
 func (d Data) WriteComplex128(ptr int, v complex128) int {
 	ptr = d.WriteFloat64(ptr, real(v))
 	return d.WriteFloat64(ptr, imag(v))
+}
+
+// Aliases
+func (d Data) WriteByte(ptr int, v byte) int {
+	d[ptr] = v; ptr++
+	return ptr
+}
+
+func (d Data) WriteRune(ptr int, v rune) int {
+	return d.WriteInt32(ptr, int32(v))
+}
+
+func (d Data) WriteInt(ptr, v int) int {
+	return d.WriteInt32(ptr, int32(v))
 }
 
 // Strings

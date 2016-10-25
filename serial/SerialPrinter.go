@@ -16,4 +16,5 @@ func PrintData(data Data) {
 	for i := 0; i < len(data); i++ {
 		fmt.Printf("0x%02X ", data[i])
 	}
+	println()
 }
