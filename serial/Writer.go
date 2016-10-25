@@ -2,13 +2,12 @@ package serial
 
 import (
 	"math"
-	"github.com/Spriithy/SerialBits/serial/objects"
 )
 
 type Data []byte
 
 func (d Data) WriteBytes(ptr int, a []byte) int {
-	assertBounds(len(d) > ptr + len(a))
+	assertBounds(len(d) >= ptr + len(a))
 	for _, v := range a {
 		ptr = d.WriteByte(ptr, v)
 	}
@@ -17,7 +16,7 @@ func (d Data) WriteBytes(ptr int, a []byte) int {
 
 // 1 bit boolean
 func (d Data) WriteBoolean(ptr int, v bool) int {
-	assertBounds(len(d) > ptr + objects.GetSize(objects.Boolean))
+	assertBounds(len(d) >= ptr + GetSize(Boolean))
 	if v {
 		return d.WriteByte(ptr, 1)
 	}
@@ -26,25 +25,25 @@ func (d Data) WriteBoolean(ptr int, v bool) int {
 
 // 8 bits integer
 func (d Data) WriteInt8(ptr int, v int8) int {
-	assertBounds(len(d) > ptr + objects.GetSize(objects.Int8))
+	assertBounds(len(d) >= ptr + GetSize(Int8))
 	return d.WriteByte(ptr, byte(v))
 }
 
 func (d Data) WriteUInt8(ptr int, v uint8) int {
-	assertBounds(len(d) > ptr + objects.GetSize(objects.UInt8))
+	assertBounds(len(d) >= ptr + GetSize(UInt8))
 	return d.WriteByte(ptr, byte(v))
 }
 
 // 16 bits integer
 func (d Data) WriteInt16(ptr int, v int16) int {
-	assertBounds(len(d) > ptr + objects.GetSize(objects.Int16))
+	assertBounds(len(d) >= ptr + GetSize(Int16))
 	d[ptr] = byte((v >> 8) & 0xFF); ptr++
 	d[ptr] = byte((v >> 0) & 0xFF); ptr++
 	return ptr
 }
 
 func (d Data) WriteUInt16(ptr int, v uint16) int {
-	assertBounds(len(d) > ptr + objects.GetSize(objects.UInt16))
+	assertBounds(len(d) >= ptr + GetSize(UInt16))
 	d[ptr] = byte((v >> 8) & 0xFF); ptr++
 	d[ptr] = byte((v >> 0) & 0xFF); ptr++
 	return ptr
@@ -52,7 +51,7 @@ func (d Data) WriteUInt16(ptr int, v uint16) int {
 
 // 32 bits integer
 func (d Data) WriteInt32(ptr int, v int32) int {
-	assertBounds(len(d) > ptr + objects.GetSize(objects.Int32))
+	assertBounds(len(d) >= ptr + GetSize(Int32))
 	d[ptr] = byte((v >> 24) & 0xFF); ptr++
 	d[ptr] = byte((v >> 16) & 0xFF); ptr++
 	d[ptr] = byte((v >> 8) & 0xFF); ptr++
@@ -61,7 +60,7 @@ func (d Data) WriteInt32(ptr int, v int32) int {
 }
 
 func (d Data) WriteUInt32(ptr int, v uint32) int {
-	assertBounds(len(d) > ptr + objects.GetSize(objects.UInt32))
+	assertBounds(len(d) >= ptr + GetSize(UInt32))
 	d[ptr] = byte((v >> 24) & 0xFF); ptr++
 	d[ptr] = byte((v >> 16) & 0xFF); ptr++
 	d[ptr] = byte((v >> 8) & 0xFF); ptr++
@@ -71,7 +70,7 @@ func (d Data) WriteUInt32(ptr int, v uint32) int {
 
 // 64 bits integer
 func (d Data) WriteInt64(ptr int, v int64) int {
-	assertBounds(len(d) > ptr + objects.GetSize(objects.Int64))
+	assertBounds(len(d) >= ptr + GetSize(Int64))
 	d[ptr] = byte((v >> 56) & 0xFF); ptr++
 	d[ptr] = byte((v >> 48) & 0xFF); ptr++
 	d[ptr] = byte((v >> 40) & 0xFF); ptr++
@@ -84,7 +83,7 @@ func (d Data) WriteInt64(ptr int, v int64) int {
 }
 
 func (d Data) WriteUInt64(ptr int, v uint64) int {
-	assertBounds(len(d) > ptr + objects.GetSize(objects.UInt64))
+	assertBounds(len(d) >= ptr + GetSize(UInt64))
 	d[ptr] = byte((v >> 56) & 0xFF); ptr++
 	d[ptr] = byte((v >> 48) & 0xFF); ptr++
 	d[ptr] = byte((v >> 40) & 0xFF); ptr++
@@ -124,13 +123,13 @@ func (d Data) WriteComplex128(ptr int, v complex128) int {
 
 // Aliases
 func (d Data) WriteByte(ptr int, v byte) int {
-	assertBounds(len(d) > ptr + objects.GetSize(objects.Byte))
+	assertBounds(len(d) >= ptr + GetSize(Byte))
 	d[ptr] = v; ptr++
 	return ptr
 }
 
 func (d Data) WriteRune(ptr int, v rune) int {
-	assertBounds(len(d) > ptr + objects.GetSize(objects.Rune)) // Even though it could be omitted
+	assertBounds(len(d) >= ptr + GetSize(Rune)) // Even though it could be omitted
 	return d.WriteInt32(ptr, int32(v))
 }
 

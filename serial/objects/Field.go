@@ -26,138 +26,143 @@ func (f *field) GetBytes(d serial.Data, ptr int) int {
 	return ptr
 }
 
-func (f *field) GetSize() {
-	return 4 + f.nameLength + len(f.data) /* 4 = 2*(1) byte + 1*(2) uint16 + */
+func (f *field) GetSize() int {
+	return 4 + (int)(f.nameLength) + len(f.data) /* 4 = 2*(1) byte + 1*(2) uint16 + */
+}
+
+func (f *field) String() string {
+	return (string)(f.name) + ": " + serial.ContainerName[f.containerType] + " - " + serial.TypeName[f.dataType]
 }
 
 // General Purpose Fields "Constructors"
 
 func BooleanField(name string, val bool) *field {
 	f := new(field)
-	f.containerType = FieldContainer
-	f.dataType = Boolean
+	f.containerType = serial.FieldContainer
+	f.dataType = serial.Boolean
 	f.SetName(name)
-	f.data = make(serial.Data, GetSize(Boolean))
+	f.data = make(serial.Data, serial.GetSize(serial.Boolean))
 	f.data.WriteBoolean(0, val)
 	return f
 }
 
 func Int8Field(name string, val int8) *field {
 	f := new(field)
-	f.containerType = FieldContainer
-	f.dataType = Int8
+	f.containerType = serial.FieldContainer
+	f.dataType = serial.Int8
 	f.SetName(name)
-	f.data = make(serial.Data, GetSize(Int8))
+	f.data = make(serial.Data, serial.GetSize(serial.Int8))
 	f.data.WriteInt8(0, val)
 	return f
 }
 
 func Int16Field(name string, val int16) *field {
 	f := new(field)
-	f.containerType = FieldContainer
-	f.dataType = Int16
+	f.containerType = serial.FieldContainer
+	f.dataType = serial.Int16
 	f.SetName(name)
-	f.data = make(serial.Data, GetSize(Int16))
+	f.data = make(serial.Data, serial.GetSize(serial.Int16))
 	f.data.WriteInt16(0, val)
 	return f
 }
 
 func Int32Field(name string, val int32) *field {
 	f := new(field)
-	f.containerType = FieldContainer
-	f.dataType = Int32
+	f.containerType = serial.FieldContainer
+	f.dataType = serial.Int32
 	f.SetName(name)
-	f.data = make(serial.Data, GetSize(Int32))
+	f.data = make(serial.Data, serial.GetSize(serial.Int32))
 	f.data.WriteInt32(0, val)
 	return f
 }
 
 func Int64Field(name string, val int64) *field {
 	f := new(field)
-	f.containerType = FieldContainer
-	f.dataType = Int64
+	f.containerType = serial.FieldContainer
+	f.dataType = serial.Int64
 	f.SetName(name)
-	f.data = make(serial.Data, GetSize(Int64))
+	f.data = make(serial.Data, serial.GetSize(serial.Int64))
 	f.data.WriteInt64(0, val)
 	return f
 }
 
 func UInt8Field(name string, val uint8) *field {
 	f := new(field)
-	f.containerType = FieldContainer
-	f.dataType = UInt8
+	f.containerType = serial.FieldContainer
+	f.dataType = serial.UInt8
 	f.SetName(name)
-	f.data = make(serial.Data, GetSize(UInt8))
+	f.data = make(serial.Data, serial.GetSize(serial.UInt8))
 	f.data.WriteUInt8(0, val)
 	return f
 }
 
 func UInt16Field(name string, val uint16) *field {
 	f := new(field)
-	f.containerType = FieldContainer
-	f.dataType = UInt16
+	f.containerType = serial.FieldContainer
+	f.dataType = serial.UInt16
 	f.SetName(name)
-	f.data = make(serial.Data, GetSize(UInt16))
+	f.data = make(serial.Data, serial.GetSize(serial.UInt16))
 	f.data.WriteUInt16(0, val)
 	return f
 }
 
 func UInt32Field(name string, val uint32) *field {
 	f := new(field)
-	f.containerType = FieldContainer
-	f.dataType = UInt32
+	f.containerType = serial.FieldContainer
+	f.dataType = serial.UInt32
 	f.SetName(name)
-	f.data = make(serial.Data, GetSize(UInt32))
+	f.data = make(serial.Data, serial.GetSize(serial.UInt32))
 	f.data.WriteUInt32(0, val)
 	return f
 }
 
 func UInt64Field(name string, val uint64) *field {
 	f := new(field)
-	f.containerType = FieldContainer
-	f.dataType = UInt64
+	f.containerType = serial.FieldContainer
+	f.dataType = serial.UInt64
 	f.SetName(name)
-	f.data = make(serial.Data, GetSize(UInt64))
+	f.data = make(serial.Data, serial.GetSize(serial.UInt64))
 	f.data.WriteUInt64(0, val)
 	return f
 }
 
 func Float32Field(name string, val float32) *field {
 	f := new(field)
-	f.containerType = FieldContainer
-	f.dataType = Float32
+	f.containerType = serial.FieldContainer
+	f.dataType = serial.Float32
 	f.SetName(name)
-	f.data = make(serial.Data, GetSize(Float32))
+	f.data = make(serial.Data, serial.GetSize(serial.Float32))
 	f.data.WriteFloat32(0, val)
 	return f
 }
 
 func Float64Field(name string, val float64) *field {
 	f := new(field)
-	f.containerType = FieldContainer
-	f.dataType = Float64
+	f.containerType = serial.FieldContainer
+	f.dataType = serial.Float64
 	f.SetName(name)
-	f.data = make(serial.Data, GetSize(Float64))
+	f.data = make(serial.Data, serial.GetSize(serial.Float64))
 	f.data.WriteFloat64(0, val)
 	return f
 }
 
 func Complex64Field(name string, val complex64) *field {
 	f := new(field)
-	f.containerType = FieldContainer
-	f.dataType = Complex64
+	f.containerType = serial.FieldContainer
+	f.dataType = serial.Complex64
 	f.SetName(name)
-	f.data = make(serial.Data, GetSize(Complex64))
+	f.data = make(serial.Data, serial.GetSize(serial.Complex64))
 	f.data.WriteComplex64(0, val)
 	return f
 }
 
 func Complex128Field(name string, val complex128) *field {
 	f := new(field)
-	f.containerType = FieldContainer
-	f.dataType = Complex128
+	f.containerType = serial.FieldContainer
+	f.dataType = serial.Complex128
 	f.SetName(name)
-	f.data = make(serial.Data, GetSize(Complex128))
+	f.data = make(serial.Data, serial.GetSize(serial.Complex128))
 	f.data.WriteComplex128(0, val)
 	return f
 }
+

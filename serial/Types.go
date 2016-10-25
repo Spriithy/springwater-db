@@ -1,6 +1,4 @@
-package objects
-
-import "go/types"
+package serial
 
 const (
 	Unknown byte = iota
@@ -27,7 +25,7 @@ const (
 	Rune = Int32
 )
 
-var typeSize = map[byte]byte{
+var typeSize = map[byte]int{
 	Unknown:    0,
 
 	Boolean:    1,
@@ -49,7 +47,28 @@ var typeSize = map[byte]byte{
 	Complex128: 16,
 }
 
+var TypeName = map[byte]string{
+	Unknown:    "Unknown",
+
+	Boolean:    "Boolean",
+
+	Int8:       "Int8",
+	Int16:      "Int16",
+	Int32:      "Int32",
+	Int64:      "Int64",
+
+	UInt8:      "UInt8",
+	UInt16:     "UInt16",
+	UInt32:     "UInt32",
+	UInt64:     "UInt64",
+
+	Float32:    "Float32",
+	Float64:    "Float64",
+
+	Complex64:  "Complex64",
+	Complex128: "Complex128",
+}
+
 func GetSize(t byte) int {
-	types.Byte
 	return typeSize[t]
 }
