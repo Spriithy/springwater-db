@@ -1,8 +1,8 @@
 package objects
 
 const (
-	Unknown byte = 0x00
-	Field byte = 0x01
-	Array byte = 0x02
-	Object byte = 0x03
+	UnknownContainer byte = 0x00
+	FieldContainer   byte = 0x01
+	ArrayContainer   byte = 0x02
+	ObjectContainer  byte = 0x03
 )

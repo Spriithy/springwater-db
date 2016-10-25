@@ -83,10 +83,7 @@ func (d Data) ReadRune(ptr int) rune {
 	return d.ReadInt32(ptr)
 }
 
-func (d Data) ReadInt(ptr int) int {
-	return int(d.ReadInt32(ptr))
-}
-
+// Strings
 func (d Data) ReadString(ptr int) string {
 	l := d.ReadUInt16(ptr)
 	str := make([]byte, l)
