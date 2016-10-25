@@ -6,8 +6,8 @@ import (
 
 func main() {
 	var data serial.Data = make(serial.Data, 16)
-	data.WriteComplex128(0, complex(1.3, 2.0))
+	data.WriteString(0, "Hello!")
+	println(data.ReadString(0))
 	serial.PrintData(data)
-	println(data.ReadFloat64(0))
 }
 

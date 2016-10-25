@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afcd53d0-3875-469a-89fa-ffa64beb72f9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/serial/objects/Containers.go" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/serial/objects/Field.go" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/serial/objects/Types.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SerialBits" afterPath="$PROJECT_DIR$/SerialBits" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main.go" afterPath="$PROJECT_DIR$/Main.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serial/SerialPrinter.go" afterPath="$PROJECT_DIR$/serial/SerialPrinter.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serial/SerialReader.go" afterPath="$PROJECT_DIR$/serial/SerialReader.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serial/SerialWriter.go" afterPath="$PROJECT_DIR$/serial/SerialWriter.go" />
     </list>
     <ignored path="SerialBits.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +31,8 @@
       <file leaf-file-name="Main.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="135">
+              <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
               <folding>
                 <element signature="e#14#65#0" expanded="true" />
               </folding>
@@ -49,10 +43,11 @@
       <file leaf-file-name="SerialWriter.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/serial/SerialWriter.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="102" column="32" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
+            <state relative-caret-position="195">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
                 <element signature="e#16#34#0" expanded="true" />
+                <element signature="n#!!block;n#WriteBytes#0" expanded="false" />
                 <element signature="n#!!block;n#WriteBoolean#0" expanded="false" />
                 <element signature="n#!!block;n#WriteInt8#0" expanded="false" />
                 <element signature="n#!!block;n#WriteUInt8#0" expanded="false" />
@@ -64,11 +59,41 @@
                 <element signature="n#!!block;n#WriteUInt64#0" expanded="false" />
                 <element signature="n#!!block;n#WriteFloat32#0" expanded="false" />
                 <element signature="n#!!block;n#WriteFloat64#0" expanded="false" />
+                <element signature="n#!!block;n#WriteComplex64#0" expanded="false" />
                 <element signature="n#!!block;n#WriteComplex128#0" expanded="false" />
                 <element signature="n#!!block;n#WriteByte#0" expanded="false" />
                 <element signature="n#!!block;n#WriteRune#0" expanded="false" />
                 <element signature="n#!!block;n#WriteInt#0" expanded="false" />
                 <element signature="n#!!block;n#WriteString#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SerialReader.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/serial/SerialReader.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+              <folding>
+                <element signature="e#16#29#0" expanded="true" />
+                <element signature="n#!!block;n#ReadBoolean#0" expanded="false" />
+                <element signature="n#!!block;n#ReadInt8#0" expanded="false" />
+                <element signature="n#!!block;n#ReadUInt8#0" expanded="false" />
+                <element signature="n#!!block;n#ReadInt16#0" expanded="false" />
+                <element signature="n#!!block;n#ReadUInt16#0" expanded="false" />
+                <element signature="n#!!block;n#ReadInt32#0" expanded="false" />
+                <element signature="n#!!block;n#ReadUInt32#0" expanded="false" />
+                <element signature="n#!!block;n#ReadInt64#0" expanded="false" />
+                <element signature="n#!!block;n#ReadUInt64#0" expanded="false" />
+                <element signature="n#!!block;n#ReadFloat32#0" expanded="false" />
+                <element signature="n#!!block;n#ReadFloat64#0" expanded="false" />
+                <element signature="n#!!block;n#ReadComplex64#0" expanded="false" />
+                <element signature="n#!!block;n#ReadComplex128#0" expanded="false" />
+                <element signature="n#!!block;n#ReadByte#0" expanded="false" />
+                <element signature="n#!!block;n#ReadRune#0" expanded="false" />
+                <element signature="n#!!block;n#ReadInt#0" expanded="false" />
+                <element signature="n#!!block;n#ReadString#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -104,50 +129,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SerialReader.go" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/serial/SerialReader.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding>
-                <element signature="e#16#29#0" expanded="true" />
-                <element signature="n#!!block;n#ReadInt8#0" expanded="false" />
-                <element signature="n#!!block;n#ReadUInt8#0" expanded="false" />
-                <element signature="n#!!block;n#ReadInt16#0" expanded="false" />
-                <element signature="n#!!block;n#ReadUInt16#0" expanded="false" />
-                <element signature="n#!!block;n#ReadInt32#0" expanded="false" />
-                <element signature="n#!!block;n#ReadUInt32#0" expanded="false" />
-                <element signature="n#!!block;n#ReadInt64#0" expanded="false" />
-                <element signature="n#!!block;n#ReadUInt64#0" expanded="false" />
-                <element signature="n#!!block;n#ReadByte#0" expanded="false" />
-                <element signature="n#!!block;n#ReadRune#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SerialTypes.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/serial/SerialTypes.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SerialPrinter.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/serial/SerialPrinter.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-              <folding>
-                <element signature="e#16#33#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -176,12 +157,12 @@
         <option value="$PROJECT_DIR$/serial/BinaryPrinter.go" />
         <option value="$PROJECT_DIR$/serial/SerialTypes.go" />
         <option value="$PROJECT_DIR$/serial/SerialWriter.go" />
-        <option value="$PROJECT_DIR$/Main.go" />
         <option value="$PROJECT_DIR$/serial/SerialPrinter.go" />
-        <option value="$PROJECT_DIR$/serial/SerialReader.go" />
         <option value="$PROJECT_DIR$/serial/objects/Containers.go" />
         <option value="$PROJECT_DIR$/serial/objects/Types.go" />
         <option value="$PROJECT_DIR$/serial/objects/Field.go" />
+        <option value="$PROJECT_DIR$/serial/SerialReader.go" />
+        <option value="$PROJECT_DIR$/Main.go" />
       </list>
     </option>
   </component>
@@ -529,7 +510,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -656,24 +637,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/Cellar/go/1.7.1/libexec/src/builtin/builtin.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="202" column="5" selection-start-line="202" selection-start-column="5" selection-end-line="202" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#14#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/serial/SerialPrinter.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -684,44 +647,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serial/SerialTypes.go">
+    <entry file="file:///usr/local/Cellar/go/1.7.1/libexec/src/builtin/builtin.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serial/SerialWriter.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="102" column="32" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
-          <folding>
-            <element signature="e#16#34#0" expanded="true" />
-            <element signature="n#!!block;n#WriteBoolean#0" expanded="false" />
-            <element signature="n#!!block;n#WriteInt8#0" expanded="false" />
-            <element signature="n#!!block;n#WriteUInt8#0" expanded="false" />
-            <element signature="n#!!block;n#WriteInt16#0" expanded="false" />
-            <element signature="n#!!block;n#WriteUInt16#0" expanded="false" />
-            <element signature="n#!!block;n#WriteInt32#0" expanded="false" />
-            <element signature="n#!!block;n#WriteUInt32#0" expanded="false" />
-            <element signature="n#!!block;n#WriteInt64#0" expanded="false" />
-            <element signature="n#!!block;n#WriteUInt64#0" expanded="false" />
-            <element signature="n#!!block;n#WriteFloat32#0" expanded="false" />
-            <element signature="n#!!block;n#WriteFloat64#0" expanded="false" />
-            <element signature="n#!!block;n#WriteComplex128#0" expanded="false" />
-            <element signature="n#!!block;n#WriteByte#0" expanded="false" />
-            <element signature="n#!!block;n#WriteRune#0" expanded="false" />
-            <element signature="n#!!block;n#WriteInt#0" expanded="false" />
-            <element signature="n#!!block;n#WriteString#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serial/objects/Types.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="792">
+          <caret line="253" column="5" selection-start-line="253" selection-start-column="5" selection-end-line="253" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -742,12 +671,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serial/SerialReader.go">
+    <entry file="file://$PROJECT_DIR$/serial/objects/Types.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serial/SerialTypes.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding>
+            <element signature="e#14#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serial/SerialWriter.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="e#16#34#0" expanded="true" />
+            <element signature="n#!!block;n#WriteBytes#0" expanded="false" />
+            <element signature="n#!!block;n#WriteBoolean#0" expanded="false" />
+            <element signature="n#!!block;n#WriteInt8#0" expanded="false" />
+            <element signature="n#!!block;n#WriteUInt8#0" expanded="false" />
+            <element signature="n#!!block;n#WriteInt16#0" expanded="false" />
+            <element signature="n#!!block;n#WriteUInt16#0" expanded="false" />
+            <element signature="n#!!block;n#WriteInt32#0" expanded="false" />
+            <element signature="n#!!block;n#WriteUInt32#0" expanded="false" />
+            <element signature="n#!!block;n#WriteInt64#0" expanded="false" />
+            <element signature="n#!!block;n#WriteUInt64#0" expanded="false" />
+            <element signature="n#!!block;n#WriteFloat32#0" expanded="false" />
+            <element signature="n#!!block;n#WriteFloat64#0" expanded="false" />
+            <element signature="n#!!block;n#WriteComplex64#0" expanded="false" />
+            <element signature="n#!!block;n#WriteComplex128#0" expanded="false" />
+            <element signature="n#!!block;n#WriteByte#0" expanded="false" />
+            <element signature="n#!!block;n#WriteRune#0" expanded="false" />
+            <element signature="n#!!block;n#WriteInt#0" expanded="false" />
+            <element signature="n#!!block;n#WriteString#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serial/SerialReader.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding>
             <element signature="e#16#29#0" expanded="true" />
+            <element signature="n#!!block;n#ReadBoolean#0" expanded="false" />
             <element signature="n#!!block;n#ReadInt8#0" expanded="false" />
             <element signature="n#!!block;n#ReadUInt8#0" expanded="false" />
             <element signature="n#!!block;n#ReadInt16#0" expanded="false" />
@@ -756,8 +740,14 @@
             <element signature="n#!!block;n#ReadUInt32#0" expanded="false" />
             <element signature="n#!!block;n#ReadInt64#0" expanded="false" />
             <element signature="n#!!block;n#ReadUInt64#0" expanded="false" />
+            <element signature="n#!!block;n#ReadFloat32#0" expanded="false" />
+            <element signature="n#!!block;n#ReadFloat64#0" expanded="false" />
+            <element signature="n#!!block;n#ReadComplex64#0" expanded="false" />
+            <element signature="n#!!block;n#ReadComplex128#0" expanded="false" />
             <element signature="n#!!block;n#ReadByte#0" expanded="false" />
             <element signature="n#!!block;n#ReadRune#0" expanded="false" />
+            <element signature="n#!!block;n#ReadInt#0" expanded="false" />
+            <element signature="n#!!block;n#ReadString#0" expanded="false" />
           </folding>
         </state>
       </provider>

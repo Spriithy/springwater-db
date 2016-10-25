@@ -15,11 +15,11 @@ func (d Data) ReadUInt8(ptr int) uint8 {
 }
 
 func (d Data) ReadInt16(ptr int) int16 {
-	return (int16)(d[ptr] << 8) | (int16)(d[ptr] << 0)
+	return (int16)(d[ptr] << 8) | (int16)(d[ptr + 1] << 0)
 }
 
 func (d Data) ReadUInt16(ptr int) uint16 {
-	return (uint16)(d[ptr] << 8) | (uint16)(d[ptr] << 0)
+	return (uint16)(d[ptr] << 8) | (uint16)(d[ptr + 1] << 0)
 }
 
 func (d Data) ReadInt32(ptr int) int32 {
@@ -85,4 +85,13 @@ func (d Data) ReadRune(ptr int) rune {
 
 func (d Data) ReadInt(ptr int) int {
 	return int(d.ReadInt32(ptr))
+}
+
+func (d Data) ReadString(ptr int) string {
+	l := d.ReadUInt16(ptr)
+	str := make([]byte, l)
+	for i, b := range d[ptr + 2:ptr + int(l) + 2] {
+		str[i - ptr] = b
+	}
+	return (string)(str)
 }
