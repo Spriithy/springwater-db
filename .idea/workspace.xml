@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afcd53d0-3875-469a-89fa-ffa64beb72f9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/serial/objects/Collection.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/serial/objects/Strings.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SerialBits" afterPath="$PROJECT_DIR$/SerialBits" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main.go" afterPath="$PROJECT_DIR$/Main.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serial/Containers.go" afterPath="$PROJECT_DIR$/serial/Containers.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serial/Serializable.go" afterPath="$PROJECT_DIR$/serial/Serializable.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serial/objects/Array.go" afterPath="$PROJECT_DIR$/serial/objects/Array.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serial/objects/Field.go" afterPath="$PROJECT_DIR$/serial/objects/Field.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serial/objects/Object.go" afterPath="$PROJECT_DIR$/serial/objects/Object.go" />
     </list>
     <ignored path="SerialBits.iws" />
@@ -34,13 +31,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="135">
+              <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
               <folding>
                 <element signature="e#14#158#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Object.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/serial/objects/Object.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="822">
+              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+              <folding>
+                <element signature="e#17#68#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -49,8 +58,8 @@
       <file leaf-file-name="Collection.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/serial/objects/Collection.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
-              <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
+            <state relative-caret-position="702">
+              <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
               <folding>
                 <element signature="e#17#63#0" expanded="true" />
               </folding>
@@ -58,47 +67,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Serializable.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/serial/Serializable.go">
+      <file leaf-file-name="Strings.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/serial/objects/Strings.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+            <state relative-caret-position="465">
+              <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+              <folding>
+                <element signature="e#17#63#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Containers.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/serial/Containers.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Object.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/serial/objects/Object.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="747">
-              <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="4" />
-              <folding>
-                <element signature="e#17#63#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Types.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/serial/Types.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-63">
-              <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Field.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/serial/objects/Field.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-              <folding>
-                <element signature="e#17#63#0" expanded="true" />
-                <element signature="n#!!block;n#SetName#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -142,13 +128,16 @@
         <option value="$PROJECT_DIR$/serial/Reader.go" />
         <option value="$PROJECT_DIR$/serial/io.go" />
         <option value="$PROJECT_DIR$/serial/io/File.go" />
-        <option value="$PROJECT_DIR$/serial/Containers.go" />
         <option value="$PROJECT_DIR$/serial/objects/Field.go" />
         <option value="$PROJECT_DIR$/serial/objects/Array.go" />
         <option value="$PROJECT_DIR$/serial/Serializable.go" />
-        <option value="$PROJECT_DIR$/Main.go" />
-        <option value="$PROJECT_DIR$/serial/objects/Object.go" />
         <option value="$PROJECT_DIR$/serial/objects/Collection.go" />
+        <option value="$PROJECT_DIR$/serial/objects/String.go" />
+        <option value="$PROJECT_DIR$/serial/objects/CharacterSet.go" />
+        <option value="$PROJECT_DIR$/serial/objects/Strings.go" />
+        <option value="$PROJECT_DIR$/serial/objects/Object.go" />
+        <option value="$PROJECT_DIR$/Main.go" />
+        <option value="$PROJECT_DIR$/serial/Containers.go" />
       </list>
     </option>
   </component>
@@ -526,16 +515,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#14#158#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main.go">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
@@ -548,9 +527,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
-          <folding>
-            <element signature="e#17#63#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -615,9 +592,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
-          <folding>
-            <element signature="e#17#63#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -647,9 +622,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#17#63#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -820,33 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serial/Writer.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="236" column="25" selection-start-line="236" selection-start-column="25" selection-end-line="236" selection-end-column="25" />
-          <folding>
-            <element signature="e#16#34#0" expanded="false" />
-            <element signature="n#!!block;n#WriteBytes#0" expanded="false" />
-            <element signature="n#!!block;n#WriteBoolean#0" expanded="false" />
-            <element signature="n#!!block;n#WriteInt8#0" expanded="false" />
-            <element signature="n#!!block;n#WriteUInt8#0" expanded="false" />
-            <element signature="n#!!block;n#WriteInt16#0" expanded="false" />
-            <element signature="n#!!block;n#WriteUInt16#0" expanded="false" />
-            <element signature="n#!!block;n#WriteInt32#0" expanded="false" />
-            <element signature="n#!!block;n#WriteUInt32#0" expanded="false" />
-            <element signature="n#!!block;n#WriteInt64#0" expanded="false" />
-            <element signature="n#!!block;n#WriteUInt64#0" expanded="false" />
-            <element signature="n#!!block;n#WriteFloat32#0" expanded="false" />
-            <element signature="n#!!block;n#WriteFloat64#0" expanded="false" />
-            <element signature="n#!!block;n#WriteComplex64#0" expanded="false" />
-            <element signature="n#!!block;n#WriteComplex128#0" expanded="false" />
-            <element signature="n#!!block;n#WriteByte#0" expanded="false" />
-            <element signature="n#!!block;n#WriteRune#0" expanded="false" />
-            <element signature="n#!!block;n#WriteString#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/serial/Reader.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="822">
@@ -897,29 +843,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serial/Containers.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/serial/Types.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-63">
           <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serial/objects/Array.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-          <folding>
-            <element signature="e#17#63#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -934,6 +862,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/serial/objects/Array.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/serial/Serializable.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -942,10 +878,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/serial/Writer.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+          <folding>
+            <element signature="n#!!block;n#WriteBytes#0" expanded="false" />
+            <element signature="n#!!block;n#WriteBoolean#0" expanded="false" />
+            <element signature="n#!!block;n#WriteInt8#0" expanded="false" />
+            <element signature="n#!!block;n#WriteUInt8#0" expanded="false" />
+            <element signature="n#!!block;n#WriteInt16#0" expanded="false" />
+            <element signature="n#!!block;n#WriteInt32#0" expanded="false" />
+            <element signature="n#!!block;n#WriteUInt32#0" expanded="false" />
+            <element signature="n#!!block;n#WriteInt64#0" expanded="false" />
+            <element signature="n#!!block;n#WriteUInt64#0" expanded="false" />
+            <element signature="n#!!block;n#WriteFloat32#0" expanded="false" />
+            <element signature="n#!!block;n#WriteFloat64#0" expanded="false" />
+            <element signature="n#!!block;n#WriteComplex64#0" expanded="false" />
+            <element signature="n#!!block;n#WriteComplex128#0" expanded="false" />
+            <element signature="n#!!block;n#WriteByte#0" expanded="false" />
+            <element signature="n#!!block;n#WriteRune#0" expanded="false" />
+            <element signature="n#!!block;n#WriteString#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/serial/objects/Object.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="747">
-          <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="4" />
+        <state relative-caret-position="822">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding>
+            <element signature="e#17#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <folding>
+            <element signature="e#14#158#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serial/objects/Strings.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
           <folding>
             <element signature="e#17#63#0" expanded="true" />
           </folding>
@@ -954,21 +935,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/serial/objects/Collection.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
+        <state relative-caret-position="702">
+          <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
           <folding>
             <element signature="e#17#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main.go">
+    <entry file="file://$PROJECT_DIR$/serial/Containers.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="e#14#158#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="195">
+          <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
