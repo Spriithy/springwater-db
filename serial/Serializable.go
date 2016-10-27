@@ -1,6 +1,7 @@
 package serial
 
+
 type Serializable interface {
-	Serialize() []byte
-	Deserialize([]byte) Serializable
+	GetBytes(Data, int) int
+	GetSize() int
 }

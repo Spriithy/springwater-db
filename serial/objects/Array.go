@@ -22,158 +22,180 @@ func (a *array) GetBytes(d serial.Data, ptr int) int {
 	ptr = d.WriteUInt16(ptr, a.nameLength)
 	ptr = d.WriteBytes(ptr, a.name)
 	ptr = d.WriteByte(ptr, a.dataType)
+	ptr = d.WriteInt32(ptr, int32(a.count))
 	ptr = d.WriteBytes(ptr, a.data)
 	return ptr
 }
 
 func (f *array) GetSize() int {
-	return 4 + (int)(f.nameLength) + len(f.data) /* 4 = 2*(1) byte + 1*(2) uint16 + */
+	return 8 + (int)(f.nameLength) + len(f.data) /* 4 = 2*(1) byte + 1*(2) uint16 + */
 }
 
 func (a *array) String() string {
 	return (string)(a.name) + ": " + serial.ContainerName[a.containerType] + " - " + serial.TypeName[a.dataType] + "[]"
 }
 
-func BooleanArray(name string, val []bool) *array {
+func BooleanArray(name string, data []bool) *array {
 	a := new(array)
 	a.containerType = serial.ArrayContainer
 	a.dataType = serial.Boolean
 	a.SetName(name)
-	a.count = len(val)
+	a.count = len(data)
 	a.data = make(serial.Data, a.count * serial.GetSize(a.dataType))
-	a.data.WriteBooleanArray(0, val)
+	a.data.WriteBooleanArray(0, data)
 	return a
 }
 
-func Int8Array(name string, val []int8) *array {
+func Int8Array(name string, data []int8) *array {
 	a := new(array)
 	a.containerType = serial.ArrayContainer
 	a.dataType = serial.Int8
 	a.SetName(name)
-	a.count = len(val)
+	a.count = len(data)
 	a.data = make(serial.Data, a.count * serial.GetSize(a.dataType))
-	a.data.WriteInt8Array(0, val)
+	a.data.WriteInt8Array(0, data)
 	return a
 }
 
-func Int16Array(name string, val []int16) *array {
+func Int16Array(name string, data []int16) *array {
 	a := new(array)
 	a.containerType = serial.ArrayContainer
 	a.dataType = serial.Int16
 	a.SetName(name)
-	a.count = len(val)
+	a.count = len(data)
 	a.data = make(serial.Data, a.count * serial.GetSize(a.dataType))
-	a.data.WriteInt16Array(0, val)
+	a.data.WriteInt16Array(0, data)
 	return a
 }
 
-func Int32Array(name string, val []int32) *array {
+func Int32Array(name string, data []int32) *array {
 	a := new(array)
 	a.containerType = serial.ArrayContainer
 	a.dataType = serial.Int32
 	a.SetName(name)
-	a.count = len(val)
+	a.count = len(data)
 	a.data = make(serial.Data, a.count * serial.GetSize(a.dataType))
-	a.data.WriteInt32Array(0, val)
+	a.data.WriteInt32Array(0, data)
 	return a
 }
 
-func Int64Array(name string, val []int64) *array {
+func Int64Array(name string, data []int64) *array {
 	a := new(array)
 	a.containerType = serial.ArrayContainer
 	a.dataType = serial.Int32
 	a.SetName(name)
-	a.count = len(val)
+	a.count = len(data)
 	a.data = make(serial.Data, a.count * serial.GetSize(a.dataType))
-	a.data.WriteInt64Array(0, val)
+	a.data.WriteInt64Array(0, data)
 	return a
 }
 
-func UInt8Array(name string, val []uint8) *array {
+func UInt8Array(name string, data []uint8) *array {
 	a := new(array)
 	a.containerType = serial.ArrayContainer
 	a.dataType = serial.UInt8
 	a.SetName(name)
-	a.count = len(val)
+	a.count = len(data)
 	a.data = make(serial.Data, a.count * serial.GetSize(a.dataType))
-	a.data.WriteUInt8Array(0, val)
+	a.data.WriteUInt8Array(0, data)
 	return a
 }
 
-func UInt16Array(name string, val []uint16) *array {
+func UInt16Array(name string, data []uint16) *array {
 	a := new(array)
 	a.containerType = serial.ArrayContainer
 	a.dataType = serial.UInt16
 	a.SetName(name)
-	a.count = len(val)
+	a.count = len(data)
 	a.data = make(serial.Data, a.count * serial.GetSize(a.dataType))
-	a.data.WriteUInt16Array(0, val)
+	a.data.WriteUInt16Array(0, data)
 	return a
 }
 
-func UInt32Array(name string, val []uint32) *array {
+func UInt32Array(name string, data []uint32) *array {
 	a := new(array)
 	a.containerType = serial.ArrayContainer
 	a.dataType = serial.UInt32
 	a.SetName(name)
-	a.count = len(val)
+	a.count = len(data)
 	a.data = make(serial.Data, a.count * serial.GetSize(a.dataType))
-	a.data.WriteUInt32Array(0, val)
+	a.data.WriteUInt32Array(0, data)
 	return a
 }
 
-func UInt64Array(name string, val []uint64) *array {
+func UInt64Array(name string, data []uint64) *array {
 	a := new(array)
 	a.containerType = serial.ArrayContainer
 	a.dataType = serial.UInt64
 	a.SetName(name)
-	a.count = len(val)
+	a.count = len(data)
 	a.data = make(serial.Data, a.count * serial.GetSize(a.dataType))
-	a.data.WriteUInt64Array(0, val)
+	a.data.WriteUInt64Array(0, data)
 	return a
 }
 
-func Float32Array(name string, val []float32) *array {
+func Float32Array(name string, data []float32) *array {
 	a := new(array)
 	a.containerType = serial.ArrayContainer
 	a.dataType = serial.Float32
 	a.SetName(name)
-	a.count = len(val)
+	a.count = len(data)
 	a.data = make(serial.Data, a.count * serial.GetSize(a.dataType))
-	a.data.WriteFloat32Array(0, val)
+	a.data.WriteFloat32Array(0, data)
 	return a
 }
 
-func Float64Array(name string, val []float64) *array {
+func Float64Array(name string, data []float64) *array {
 	a := new(array)
 	a.containerType = serial.ArrayContainer
 	a.dataType = serial.Float64
 	a.SetName(name)
-	a.count = len(val)
+	a.count = len(data)
 	a.data = make(serial.Data, a.count * serial.GetSize(a.dataType))
-	a.data.WriteFloat64Array(0, val)
+	a.data.WriteFloat64Array(0, data)
 	return a
 }
 
-func Complex64Array(name string, val []complex64) *array {
+func Complex64Array(name string, data []complex64) *array {
 	a := new(array)
 	a.containerType = serial.ArrayContainer
 	a.dataType = serial.Complex64
 	a.SetName(name)
-	a.count = len(val)
+	a.count = len(data)
 	a.data = make(serial.Data, a.count * serial.GetSize(a.dataType))
-	a.data.WriteComplex64Array(0, val)
+	a.data.WriteComplex64Array(0, data)
 	return a
 }
 
-func Complex128Array(name string, val []complex128) *array {
+func Complex128Array(name string, data []complex128) *array {
 	a := new(array)
 	a.containerType = serial.ArrayContainer
 	a.dataType = serial.Complex128
 	a.SetName(name)
-	a.count = len(val)
+	a.count = len(data)
 	a.data = make(serial.Data, a.count * serial.GetSize(a.dataType))
-	a.data.WriteComplex128Array(0, val)
+	a.data.WriteComplex128Array(0, data)
+	return a
+}
+
+func ByteArray(name string, data []byte) *array {
+	a := new(array)
+	a.containerType = serial.ArrayContainer
+	a.dataType = serial.Byte
+	a.SetName(name)
+	a.count = len(data)
+	a.data = make(serial.Data, a.count * serial.GetSize(a.dataType))
+	a.data.WriteByteArray(0, data)
+	return a
+}
+func RuneArray(name string, data []rune) *array {
+	a := new(array)
+	a.containerType = serial.ArrayContainer
+	a.dataType = serial.Rune
+	a.SetName(name)
+	a.count = len(data)
+	a.data = make(serial.Data, a.count * serial.GetSize(a.dataType))
+	a.data.WriteRuneArray(0, data)
 	return a
 }
 
