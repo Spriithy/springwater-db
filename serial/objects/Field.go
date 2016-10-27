@@ -30,10 +30,6 @@ func (f *field) GetSize() int {
 	return 4 + (int)(f.nameLength) + len(f.data) /* 4 = 2*(1) byte + 1*(2) uint16 + */
 }
 
-func (f *field) String() string {
-	return (string)(f.name) + ": " + serial.ContainerName[f.containerType] + " - " + serial.TypeName[f.dataType]
-}
-
 // General Purpose Fields "Constructors"
 
 func BooleanField(name string, val bool) *field {

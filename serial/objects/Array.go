@@ -31,10 +31,6 @@ func (f *array) GetSize() int {
 	return 8 + (int)(f.nameLength) + len(f.data) /* 4 = 2*(1) byte + 1*(2) uint16 + */
 }
 
-func (a *array) String() string {
-	return (string)(a.name) + ": " + serial.ContainerName[a.containerType] + " - " + serial.TypeName[a.dataType] + "[]"
-}
-
 func BooleanArray(name string, data []bool) *array {
 	a := new(array)
 	a.containerType = serial.ArrayContainer

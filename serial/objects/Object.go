@@ -6,6 +6,7 @@ type object struct {
 	containerType byte
 	nameLength    uint16
 	name          []byte
+
 	size          int
 
 	// TODO Implement hashtable for object offsets in byte array
@@ -17,7 +18,7 @@ func SerialObject(name string) *object {
 	obj := new(object)
 	obj.containerType = serial.ObjectContainer
 	obj.SetName(name)
-	obj.size = 7
+	obj.size += 7
 	return obj
 }
 
@@ -42,16 +43,18 @@ func (obj *object) AddArray(a *array) {
 }
 
 func (obj *object) GetSize() int {
-	return obj.size
+	return obj.size + 4
 }
 
 func (obj *object) GetBytes(d serial.Data, ptr int) int {
 	ptr = d.WriteByte(ptr, obj.containerType)
+	ptr = d.WriteInt32(ptr, (int32)(obj.size))
 	ptr = d.WriteUInt16(ptr, obj.nameLength)
 	ptr = d.WriteBytes(ptr, obj.name)
 
 	ptr = d.WriteUInt16(ptr, uint16(len(obj.fields)))
 	for _, f := range obj.fields {
+		println(ptr, f.GetSize())
 		ptr = f.GetBytes(d, ptr)
 	}
 
