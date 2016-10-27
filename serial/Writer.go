@@ -141,65 +141,107 @@ func (d Data) WriteString(ptr int, v string) int {
 	return d.WriteBytes(ptr, ([]byte)(v))
 }
 
-// One function to store any array kind, rather than implementing the same over and over
-// for each type
-func (d Data) WriteArrayOf(ptr int, a []interface{}) int {
-	switch a[0].(type) {
-	case bool:
-		for _, e := range a {
-			ptr = d.WriteBoolean(ptr, e.(bool))
-		}
-	case int8:
-		for _, e := range a {
-			ptr = d.WriteInt8(ptr, e.(int8))
-		}
-	case uint8:
-		for _, e := range a {
-			ptr = d.WriteUInt8(ptr, e.(uint8))
-		}
-	case int16:
-		for _, e := range a {
-			ptr = d.WriteInt16(ptr, e.(int16))
-		}
-	case uint16:
-		for _, e := range a {
-			ptr = d.WriteUInt16(ptr, e.(uint16))
-		}
-	case int32:
-		for _, e := range a {
-			ptr = d.WriteInt32(ptr, e.(int32))
-		}
-	case uint32:
-		for _, e := range a {
-			ptr = d.WriteUInt32(ptr, e.(uint32))
-		}
-	case int64:
-		for _, e := range a {
-			ptr = d.WriteInt64(ptr, e.(int64))
-		}
-	case uint64:
-		for _, e := range a {
-			ptr = d.WriteUInt64(ptr, e.(uint64))
-		}
-	case float32:
-		for _, e := range a {
-			ptr = d.WriteFloat32(ptr, e.(float32))
-		}
-	case float64:
-		for _, e := range a {
-			ptr = d.WriteFloat64(ptr, e.(float64))
-		}
-	case complex64:
-		for _, e := range a {
-			ptr = d.WriteComplex64(ptr, e.(complex64))
-		}
-	case complex128:
-		for _, e := range a {
-			ptr = d.WriteComplex128(ptr, e.(complex128))
-		}
-	default:
-		panic("Unsupported type used in `WriteArrayOf` function!")
-		return -1
+func (d Data) WriteBooleanArray(ptr int, a []bool) int {
+	for _, e := range a {
+		ptr = d.WriteBoolean(ptr, e)
+	}
+	return ptr
+}
+
+func (d Data) WriteInt8Array(ptr int, a []int8) int {
+	for _, e := range a {
+		ptr = d.WriteInt8(ptr, e)
+	}
+	return ptr
+}
+
+func (d Data) WriteUInt8Array(ptr int, a []uint8) int {
+	for _, e := range a {
+		ptr = d.WriteUInt8(ptr, e)
+	}
+	return ptr
+}
+
+func (d Data) WriteInt16Array(ptr int, a []int16) int {
+	for _, e := range a {
+		ptr = d.WriteInt16(ptr, e)
+	}
+	return ptr
+}
+
+func (d Data) WriteUInt16Array(ptr int, a []uint16) int {
+	for _, e := range a {
+		ptr = d.WriteUInt16(ptr, e)
+	}
+	return ptr
+}
+
+func (d Data) WriteInt32Array(ptr int, a []int32) int {
+	for _, e := range a {
+		ptr = d.WriteInt32(ptr, e)
+	}
+	return ptr
+}
+
+func (d Data) WriteUInt32Array(ptr int, a []uint32) int {
+	for _, e := range a {
+		ptr = d.WriteUInt32(ptr, e)
+	}
+	return ptr
+}
+
+func (d Data) WriteInt64Array(ptr int, a []int64) int {
+	for _, e := range a {
+		ptr = d.WriteInt64(ptr, e)
+	}
+	return ptr
+}
+
+func (d Data) WriteUInt64Array(ptr int, a []uint64) int {
+	for _, e := range a {
+		ptr = d.WriteUInt64(ptr, e)
+	}
+	return ptr
+}
+
+func (d Data) WriteFloat32Array(ptr int, a []float32) int {
+	for _, e := range a {
+		ptr = d.WriteFloat32(ptr, e)
+	}
+	return ptr
+}
+
+func (d Data) WriteFloat64Array(ptr int, a []float64) int {
+	for _, e := range a {
+		ptr = d.WriteFloat64(ptr, e)
+	}
+	return ptr
+}
+
+func (d Data) WriteComplex64Array(ptr int, a []complex64) int {
+	for _, e := range a {
+		ptr = d.WriteComplex64(ptr, e)
+	}
+	return ptr
+}
+
+func (d Data) WriteComplex128Array(ptr int, a []complex128) int {
+	for _, e := range a {
+		ptr = d.WriteComplex128(ptr, e)
+	}
+	return ptr
+}
+
+func (d Data) WriteByteArray(ptr int, a []byte) int {
+	for _, e := range a {
+		ptr = d.WriteByte(ptr, e)
+	}
+	return ptr
+}
+
+func (d Data) WriteRuneArray(ptr int, a []rune) int {
+	for _, e := range a {
+		ptr = d.WriteRune(ptr, e)
 	}
 	return ptr
 }
