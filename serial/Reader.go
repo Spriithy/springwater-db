@@ -86,9 +86,5 @@ func (d Data) ReadRune(ptr int) rune {
 // Strings
 func (d Data) ReadString(ptr int) string {
 	l := d.ReadUInt16(ptr)
-	str := make([]byte, l)
-	for i, b := range d[ptr + 2:ptr + int(l) + 2] {
-		str[i - ptr] = b
-	}
-	return (string)(str)
+	return (string)(d[ptr + 2:ptr + 2 + int(l)])
 }
