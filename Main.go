@@ -6,7 +6,7 @@ import (
 	"github.com/Spriithy/SerialBits/serial/objects"
 )
 
-func main() {
+func serializeTest() {
 	var data serial.Data
 
 	collection := objects.SerialCollection("Players Info")
@@ -22,9 +22,22 @@ func main() {
 
 	collection.AddObject(player1)
 	data = make(serial.Data, collection.GetSize())
-    collection.GetBytes(data, 0)
+	collection.GetBytes(data, 0)
 
 	serialio.SaveDataToFile("serial.bin", data)
+}
+
+func main() {
+	serializeTest()
+
+	data, err := serialio.LoadDataFromFile("serial.bin")
+	if err != nil {
+		panic(err)
+	}
+
+	serial.PrintData(data)
+
+	objects.CollectionFromBytes(data)
 
 }
 

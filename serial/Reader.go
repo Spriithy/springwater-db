@@ -84,7 +84,7 @@ func (d Data) ReadRune(ptr int) rune {
 }
 
 // Strings
-func (d Data) ReadString(ptr int) string {
-	l := d.ReadUInt16(ptr)
-	return (string)(d[ptr + 2:ptr + 2 + int(l)])
+func (d Data) ReadString(ptr int) (int, string) {
+	l := (int)(d.ReadUInt16(ptr))
+	return l, (string)(d[ptr + 2:ptr + 2 + l])
 }
