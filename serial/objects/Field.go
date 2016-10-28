@@ -162,3 +162,63 @@ func Complex128Field(name string, val complex128) *field {
 	return f
 }
 
+func FieldFromBytes(data serial.Data, offset int) *field {
+	var ptr int = offset
+
+	containerType := data.ReadByte(ptr); ptr++
+	if containerType != serial.FieldContainer {
+		panic("Unexpected non-field wrapper in data stream: " + serial.ContainerName[containerType])
+	}
+
+	l, name := data.ReadString(ptr)
+	ptr += l + 2
+	println(name)
+
+	dt := data.ReadByte(ptr); ptr++
+
+	switch dt {
+	case serial.Boolean:
+		val := data.ReadBoolean(ptr)
+		return BooleanField(name, val)
+	case serial.Int8:
+		val := data.ReadInt8(ptr)
+		return Int8Field(name, val)
+	case serial.Int16:
+		val := data.ReadInt16(ptr)
+		return Int16Field(name, val)
+	case serial.Int32:
+		val := data.ReadInt32(ptr)
+		return Int32Field(name, val)
+	case serial.Int64:
+		val := data.ReadInt64(ptr)
+		return Int64Field(name, val)
+	case serial.UInt8:
+		val := data.ReadUInt8(ptr)
+		return UInt8Field(name, val)
+	case serial.UInt16:
+		val := data.ReadUInt16(ptr)
+		return UInt16Field(name, val)
+	case serial.UInt32:
+		val := data.ReadUInt32(ptr)
+		return UInt32Field(name, val)
+	case serial.UInt64:
+		val := data.ReadUInt64(ptr)
+		return UInt64Field(name, val)
+	case serial.Float32:
+		val := data.ReadFloat32(ptr)
+		return Float32Field(name, val)
+	case serial.Float64:
+		val := data.ReadFloat64(ptr)
+		return Float64Field(name, val)
+	case serial.Complex64:
+		val := data.ReadComplex64(ptr)
+		return Complex64Field(name, val)
+	case serial.Complex128:
+		val := data.ReadComplex128(ptr)
+		return Complex128Field(name, val)
+	}
+
+	panic("Unknown field type encountered while deserializing data stream")
+
+	return nil
+}

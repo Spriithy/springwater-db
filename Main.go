@@ -15,7 +15,7 @@ func serializeTest() {
 	xpos := objects.Int32Field("xpos", 32)
 	ypos := objects.Int32Field("ypos", 78)
 
-	player1 := objects.SerialObject("Player120")
+	player1 := objects.SerialObject("Player12")
 	player1.AddByteString(name)
 	player1.AddField(xpos)
 	player1.AddField(ypos)

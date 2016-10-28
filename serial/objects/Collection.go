@@ -89,5 +89,11 @@ func CollectionFromBytes(data serial.Data) *collection {
 
 	col := SerialCollection(name)
 
+	count := (int)(data.ReadUInt16(ptr)); ptr += 2
+	for i := 0; i < count; i++ {
+		col.AddObject(ObjectFromBytes(data, ptr))
+	}
+
+
 	return col
 }

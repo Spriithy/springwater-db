@@ -56,12 +56,11 @@ func (obj *object) AddRuneString(str *runestring) {
 }
 
 func (obj *object) GetSize() int {
-	return obj.size + 8
+	return obj.size + 4
 }
 
 func (obj *object) GetBytes(d serial.Data, ptr int) int {
 	ptr = d.WriteByte(ptr, obj.containerType)
-	ptr = d.WriteInt32(ptr, (int32)(obj.size))
 	ptr = d.WriteUInt16(ptr, obj.nameLength)
 	ptr = d.WriteBytes(ptr, obj.name)
 
@@ -86,4 +85,44 @@ func (obj *object) GetBytes(d serial.Data, ptr int) int {
 	}
 
 	return ptr
+}
+
+func ObjectFromBytes(data serial.Data, offset int) *object {
+	var ptr int = offset
+
+	containerType := data.ReadByte(ptr); ptr++
+	if containerType != serial.ObjectContainer {
+		panic("Unexpected non-object wrapper in data stream: " + serial.ContainerName[containerType])
+	}
+
+	l, name := data.ReadString(ptr)
+	ptr += l + 2
+	println(name)
+	obj := SerialObject(name)
+
+	fc := (int)(data.ReadUInt16(ptr)); ptr += 2
+	for i := 0; i < fc; i++ {
+		obj.AddField(FieldFromBytes(data, ptr))
+		ptr += obj.fields[i].GetSize()
+	}
+
+	ac := (int)(data.ReadUInt16(ptr)); ptr += 2
+	for i := 0; i < ac; i++ {
+		obj.AddArray(nil)
+		ptr += obj.arrays[i].GetSize()
+	}
+
+	bc := (int)(data.ReadUInt16(ptr)); ptr += 2
+	for i := 0; i < bc; i++ {
+		obj.AddByteString(nil)
+		ptr += obj.bstrings[i].GetSize()
+	}
+
+	rc := (int)(data.ReadUInt16(ptr)); ptr += 2
+	for i := 0; i < rc; i++ {
+		obj.AddRuneString(nil)
+		ptr += obj.rstrings[i].GetSize()
+	}
+
+	return obj
 }
