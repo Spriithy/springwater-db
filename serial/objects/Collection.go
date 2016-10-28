@@ -53,6 +53,15 @@ func (col *collection) AddObject(obj *object) {
 	col.size += obj.GetSize()
 }
 
+func (col *collection) GetObject(name string) *object {
+	for _, obj := range col.objects {
+		if (string)(obj.name) == name {
+			return obj
+		}
+	}
+	return nil
+}
+
 func (col *collection) GetSize() int {
 	return col.size - 2
 }

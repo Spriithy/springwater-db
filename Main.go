@@ -13,7 +13,7 @@ func serializeTest() {
 
 	name := objects.ByteString("name", "Foo bar Baz")
 	xpos := objects.Int32Field("xpos", 32)
-	ypos := objects.Int32Field("ypos", 78)
+	ypos := objects.Float32Field("ypos", 1256.317)
 
 	player1 := objects.SerialObject("Player12")
 	player1.AddString(name)
@@ -38,7 +38,8 @@ func main() {
 
 	serial.PrintData(data)
 
-	objects.CollectionFromBytes(data)
+	col := objects.CollectionFromBytes(data)
+	println(col.GetObject("Player12").GetField("ypos").ValueOf().(float32))
 
 }
 

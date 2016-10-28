@@ -13,6 +13,7 @@ func PrintBin(value interface{}) {
 }
 
 func PrintData(data Data) {
+	println("       |  0  1  2  3   4  5  6  7   8  9  A  B   C  D  E  F")
 	fmt.Printf("%06x | ", 0)
 	i := 1
 	for ; i <= len(data); i++ {

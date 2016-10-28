@@ -39,14 +39,41 @@ func (obj *object) AddField(f *field) {
 	obj.size += f.GetSize()
 }
 
+func (obj *object) GetField(name string) *field {
+	for _, f := range obj.fields {
+		if (string)(f.name) == name {
+			return f
+		}
+	}
+	return nil
+}
+
 func (obj *object) AddArray(a *array) {
 	obj.arrays = append(obj.arrays, a)
 	obj.size += a.GetSize()
 }
 
+func (obj *object) GetArray(name string) *array {
+	for _, a := range obj.arrays {
+		if (string)(a.name) == name {
+			return a
+		}
+	}
+	return nil
+}
+
 func (obj *object) AddString(str *strings) {
 	obj.strings = append(obj.strings, str)
 	obj.size += str.GetSize()
+}
+
+func (obj *object) GetString(name string) *strings {
+	for _, s := range obj.strings {
+		if (string)(s.name) == name {
+			return s
+		}
+	}
+	return nil
 }
 
 func (obj *object) GetSize() int {
