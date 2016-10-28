@@ -108,7 +108,7 @@ func ObjectFromBytes(data serial.Data, offset int) *object {
 
 	ac := (int)(data.ReadUInt16(ptr)); ptr += 2
 	for i := 0; i < ac; i++ {
-		obj.AddArray(nil)
+		obj.AddArray(ArrayFromBytes(data, ptr))
 		ptr += obj.arrays[i].GetSize()
 	}
 

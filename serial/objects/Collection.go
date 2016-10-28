@@ -94,6 +94,5 @@ func CollectionFromBytes(data serial.Data) *collection {
 		col.AddObject(ObjectFromBytes(data, ptr))
 	}
 
-
 	return col
 }
