@@ -28,9 +28,7 @@ func serializeTest() {
 	serialio.SaveDataToFile("serial.bin", data)
 }
 
-func main() {
-	serializeTest()
-
+func deserializeTest() {
 	data, err := serialio.LoadDataFromFile("serial.bin")
 	if err != nil {
 		panic(err)
@@ -41,5 +39,10 @@ func main() {
 	col := objects.CollectionFromBytes(data)
 	println(col.GetObject("Player12").GetField("ypos").ValueOf().(float32))
 
+}
+
+func main() {
+	serializeTest()
+	deserializeTest()
 }
 

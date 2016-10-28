@@ -12,6 +12,41 @@ type array struct {
 }
 
 // Exported Field methods
+func (a *array) ValueOf() interface{} {
+	switch a.dataType {
+	case serial.Boolean:
+		return a.data.ReadBooleanArray(0, a.count)
+	case serial.Int8:
+		return a.data.ReadInt8Array(0, a.count)
+	case serial.Int16:
+		return a.data.ReadInt16Array(0, a.count)
+	case serial.Int32:
+		return a.data.ReadInt32Array(0, a.count)
+	case serial.Int64:
+		return a.data.ReadInt64Array(0, a.count)
+	case serial.UInt8:
+		return a.data.ReadUInt8Array(0, a.count)
+	case serial.UInt16:
+		return a.data.ReadUInt16Array(0, a.count)
+	case serial.UInt32:
+		return a.data.ReadUInt32Array(0, a.count)
+	case serial.UInt64:
+		return a.data.ReadUInt64Array(0, a.count)
+	case serial.Float32:
+		return a.data.ReadFloat32Array(0, a.count)
+	case serial.Float64:
+		return a.data.ReadFloat64Array(0, a.count)
+	case serial.Complex64:
+		return a.data.ReadComplex64Array(0, a.count)
+	case serial.Complex128:
+		return a.data.ReadComplex128Array(0, a.count)
+	}
+
+	panic("Parsing unknown data-typed field!")
+
+	return nil
+}
+
 func (a *array) SetName(name string) {
 	a.nameLength = (uint16)(len(name))
 	a.name = ([]byte)(name)
@@ -214,82 +249,43 @@ func ArrayFromBytes(data serial.Data, offset int) *array {
 
 	switch dt {
 	case serial.Boolean:
-		dat := make([]bool, count)
-		for i := 0; i < count; i++ {
-			dat[i] = data.ReadBoolean(ptr); ptr++
-		}
+		dat := data.ReadBooleanArray(ptr, count)
 		return BooleanArray(name, dat)
 	case serial.Int8:
-		dat := make([]int8, count)
-		for i := 0; i < count; i++ {
-			dat[i] = data.ReadInt8(ptr); ptr++
-		}
+		dat := data.ReadInt8Array(ptr, count)
 		return Int8Array(name, dat)
 	case serial.Int16:
-		dat := make([]int16, count)
-		for i := 0; i < count; i++ {
-			dat[i] = data.ReadInt16(ptr); ptr++
-		}
+		dat := data.ReadInt16Array(ptr, count)
 		return Int16Array(name, dat)
 	case serial.Int32:
-		dat := make([]int32, count)
-		for i := 0; i < count; i++ {
-			dat[i] = data.ReadInt32(ptr); ptr++
-		}
+		dat := data.ReadInt32Array(ptr, count)
 		return Int32Array(name, dat)
 	case serial.Int64:
-		dat := make([]int64, count)
-		for i := 0; i < count; i++ {
-			dat[i] = data.ReadInt64(ptr); ptr++
-		}
+		dat := data.ReadInt64Array(ptr, count)
 		return Int64Array(name, dat)
 	case serial.UInt8:
-		dat := make([]uint8, count)
-		for i := 0; i < count; i++ {
-			dat[i] = data.ReadUInt8(ptr); ptr++
-		}
+		dat := data.ReadUInt8Array(ptr, count)
 		return UInt8Array(name, dat)
 	case serial.UInt16:
-		dat := make([]uint16, count)
-		for i := 0; i < count; i++ {
-			dat[i] = data.ReadUInt16(ptr); ptr++
-		}
+		dat := data.ReadUInt16Array(ptr, count)
 		return UInt16Array(name, dat)
 	case serial.UInt32:
-		dat := make([]uint32, count)
-		for i := 0; i < count; i++ {
-			dat[i] = data.ReadUInt32(ptr); ptr++
-		}
+		dat := data.ReadUInt32Array(ptr, count)
 		return UInt32Array(name, dat)
 	case serial.UInt64:
-		dat := make([]uint64, count)
-		for i := 0; i < count; i++ {
-			dat[i] = data.ReadUInt64(ptr); ptr++
-		}
+		dat := data.ReadUInt64Array(ptr, count)
 		return UInt64Array(name, dat)
 	case serial.Float32:
-		dat := make([]float32, count)
-		for i := 0; i < count; i++ {
-			dat[i] = data.ReadFloat32(ptr); ptr++
-		}
+		dat := data.ReadFloat32Array(ptr, count)
 		return Float32Array(name, dat)
 	case serial.Float64:
-		dat := make([]float64, count)
-		for i := 0; i < count; i++ {
-			dat[i] = data.ReadFloat64(ptr); ptr++
-		}
+		dat := data.ReadFloat64Array(ptr, count)
 		return Float64Array(name, dat)
 	case serial.Complex64:
-		dat := make([]complex64, count)
-		for i := 0; i < count; i++ {
-			dat[i] = data.ReadComplex64(ptr); ptr++
-		}
+		dat := data.ReadComplex64Array(ptr, count)
 		return Complex64Array(name, dat)
 	case serial.Complex128:
-		dat := make([]complex128, count)
-		for i := 0; i < count; i++ {
-			dat[i] = data.ReadComplex128(ptr); ptr++
-		}
+		dat := data.ReadComplex128Array(ptr, count)
 		return Complex128Array(name, dat)
 	}
 

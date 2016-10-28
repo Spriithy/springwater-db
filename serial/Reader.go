@@ -88,3 +88,120 @@ func (d Data) ReadString(ptr int) (int, string) {
 	l := (int)(d.ReadUInt16(ptr))
 	return l, (string)(d[ptr + 2:ptr + 2 + l])
 }
+
+func (d Data) ReadBooleanArray(ptr, length int) []bool {
+	a := make([]bool, length)
+	for i := 0; i < length; i++ {
+		a[i] = d.ReadBoolean(ptr)
+		ptr++
+	}
+	return a
+}
+
+func (d Data) ReadInt8Array(ptr, length int) []int8 {
+	a := make([]int8, length)
+	for i := 0; i < length; i++ {
+		a[i] = d.ReadInt8(ptr)
+		ptr++
+	}
+	return a
+}
+
+func (d Data) ReadInt16Array(ptr, length int) []int16 {
+	a := make([]int16, length)
+	for i := 0; i < length; i++ {
+		a[i] = d.ReadInt16(ptr)
+		ptr += 2
+	}
+	return a
+}
+
+func (d Data) ReadInt32Array(ptr, length int) []int32 {
+	a := make([]int32, length)
+	for i := 0; i < length; i++ {
+		a[i] = d.ReadInt32(ptr)
+		ptr += 4
+	}
+	return a
+}
+
+func (d Data) ReadInt64Array(ptr, length int) []int64 {
+	a := make([]int64, length)
+	for i := 0; i < length; i++ {
+		a[i] = d.ReadInt64(ptr)
+		ptr += 8
+	}
+	return a
+}
+
+func (d Data) ReadUInt8Array(ptr, length int) []uint8 {
+	a := make([]uint8, length)
+	for i := 0; i < length; i++ {
+		a[i] = d.ReadUInt8(ptr)
+		ptr++
+	}
+	return a
+}
+
+func (d Data) ReadUInt16Array(ptr, length int) []uint16 {
+	a := make([]uint16, length)
+	for i := 0; i < length; i++ {
+		a[i] = d.ReadUInt16(ptr)
+		ptr += 2
+	}
+	return a
+}
+
+func (d Data) ReadUInt32Array(ptr, length int) []uint32 {
+	a := make([]uint32, length)
+	for i := 0; i < length; i++ {
+		a[i] = d.ReadUInt32(ptr)
+		ptr += 4
+	}
+	return a
+}
+
+func (d Data) ReadUInt64Array(ptr, length int) []uint64 {
+	a := make([]uint64, length)
+	for i := 0; i < length; i++ {
+		a[i] = d.ReadUInt64(ptr)
+		ptr += 8
+	}
+	return a
+}
+
+func (d Data) ReadFloat32Array(ptr, length int) []float32 {
+	a := make([]float32, length)
+	for i := 0; i < length; i++ {
+		a[i] = d.ReadFloat32(ptr)
+		ptr += 4
+	}
+	return a
+}
+
+func (d Data) ReadFloat64Array(ptr, length int) []float64 {
+	a := make([]float64, length)
+	for i := 0; i < length; i++ {
+		a[i] = d.ReadFloat64(ptr)
+		ptr += 8
+	}
+	return a
+}
+
+func (d Data) ReadComplex64Array(ptr, length int) []complex64 {
+	a := make([]complex64, length)
+	for i := 0; i < length; i++ {
+		a[i] = d.ReadComplex64(ptr)
+		ptr += 8
+	}
+	return a
+}
+
+func (d Data) ReadComplex128Array(ptr, length int) []complex128 {
+	a := make([]complex128, length)
+	for i := 0; i < length; i++ {
+		a[i] = d.ReadComplex128(ptr)
+		ptr += 16
+	}
+	return a
+}
