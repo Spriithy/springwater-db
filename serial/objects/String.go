@@ -75,7 +75,7 @@ func StringFromBytes(data serial.Data, offset int) *strings {
 
 	l, name := data.ReadString(ptr)
 	ptr += l + 2
-	print("\t" + name + ": ")
+	//print("\t" + name + ": ")
 
 	switch kind {
 	case serial.Byte:
@@ -85,7 +85,7 @@ func StringFromBytes(data serial.Data, offset int) *strings {
 			str[i] = data.ReadByte(ptr)
 			ptr++
 		}
-		println("\"" + (string)(str) + "\"")
+		//println("\"" + (string)(str) + "\"")
 		return ByteString(name, (string)(str))
 	case serial.Rune:
 		l = (int)(data.ReadInt32(ptr)); ptr += 4
@@ -94,7 +94,7 @@ func StringFromBytes(data serial.Data, offset int) *strings {
 			str[i] = data.ReadRune(ptr)
 			ptr += 4
 		}
-		println("\"" + (string)(str) + "\"")
+		//println("\"" + (string)(str) + "\"")
 		return RuneString(name, (string)(str))
 	}
 

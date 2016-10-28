@@ -71,7 +71,7 @@ func FieldFromBytes(data serial.Data, offset int) *field {
 
 	l, name := data.ReadString(ptr)
 	ptr += l + 2
-	println("\t" + name)
+	//println("\t" + name)
 
 	dt := data.ReadByte(ptr); ptr++
 

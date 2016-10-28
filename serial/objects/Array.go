@@ -242,10 +242,12 @@ func ArrayFromBytes(data serial.Data, offset int) *array {
 
 	l, name := data.ReadString(ptr)
 	ptr += l + 2
-	println(name)
+	//print("\t" + name + ": ")
 
 	dt := data.ReadByte(ptr); ptr++
-	count := (int)(data.ReadUInt32(ptr)); ptr += 2
+	count := (int)(data.ReadUInt32(ptr)); ptr += 4
+
+	//println(count)
 
 	switch dt {
 	case serial.Boolean:

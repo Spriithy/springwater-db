@@ -113,7 +113,7 @@ func ObjectFromBytes(data serial.Data, offset int) *object {
 
 	l, name := data.ReadString(ptr)
 	ptr += l + 2
-	println(name)
+	//println(name)
 	obj := SerialObject(name)
 
 	fc := (int)(data.ReadUInt16(ptr)); ptr += 2
