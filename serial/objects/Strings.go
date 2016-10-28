@@ -2,42 +2,38 @@ package objects
 
 import "github.com/Spriithy/SerialBits/serial"
 
-const (
-	ByteStringKind byte = 0x00
-	RuneStringKind byte = 0xFF
-)
-
-type bytestring struct {
+type strings struct {
 	containerType byte
-
+	kind          byte
 	nameLength    uint16
 	name          []byte
 
 	size, length  int
-	string        []byte
+	bytes         []byte
+	runes         []rune
 }
 
-type runestring struct {
-	containerType byte
-
-	nameLength    uint16
-	name          []byte
-
-	size, length  int
-	string        []rune
-}
-
-func ByteString(name, content string) *bytestring {
-	str := new(bytestring)
+func ByteString(name, content string) *strings {
+	str := new(strings)
 	str.containerType = serial.StringContainer
+	str.kind = serial.Byte
 	str.SetName(name)
 	str.length = len(content)
-	str.string = ([]byte)(content)
-	str.size += 11
+	str.bytes = ([]byte)(content)
 	return str
 }
 
-func (str *bytestring) SetName(name string) {
+func RuneString(name, content string) *strings {
+	str := new(strings)
+	str.containerType = serial.StringContainer
+	str.kind = serial.Rune
+	str.SetName(name)
+	str.length = len(content)
+	str.runes = ([]rune)(content)
+	return str
+}
+
+func (str *strings) SetName(name string) {
 	if str.size != 0 {
 		str.size -= (int)(str.nameLength)
 	}
@@ -47,50 +43,60 @@ func (str *bytestring) SetName(name string) {
 	str.size += (int)(str.nameLength)
 }
 
-func (str *bytestring) GetBytes(d serial.Data, ptr int) int {
+func (str *strings) GetBytes(d serial.Data, ptr int) int {
 	ptr = d.WriteByte(ptr, str.containerType)
-	ptr = d.WriteByte(ptr, ByteStringKind)
+	ptr = d.WriteByte(ptr, str.kind)
 	ptr = d.WriteUInt16(ptr, str.nameLength)
 	ptr = d.WriteBytes(ptr, str.name)
 	ptr = d.WriteInt32(ptr, (int32)(str.length))
-	ptr = d.WriteBytes(ptr, str.string)
+
+	switch str.kind {
+	case serial.Byte:
+		ptr = d.WriteBytes(ptr, str.bytes)
+	case serial.Rune:
+		ptr = d.WriteRuneArray(ptr, str.runes)
+	}
 	return ptr
 }
 
-func (str *bytestring) GetSize() int {
-	return str.size + (int)(str.nameLength) + str.length
+func (str *strings) GetSize() int {
+	return 8 + len(str.name) + str.length * serial.GetSize(str.kind)
 }
 
-func RuneString(name, content string) *runestring {
-	str := new(runestring)
-	str.containerType = serial.StringContainer
-	str.SetName(name)
-	str.length = len(content)
-	str.string = ([]rune)(content)
-	str.size += 11
-	return str
-}
+func StringFromBytes(data serial.Data, offset int) *strings {
+	var ptr int = offset
 
-func (str *runestring) SetName(name string) {
-	if str.size != 0 {
-		str.size -= (int)(str.nameLength)
+	containerType := data.ReadByte(ptr); ptr++
+	if containerType != serial.StringContainer {
+		panic("Unexpected non-string wrapper in data stream: " + serial.ContainerName[containerType])
 	}
 
-	str.nameLength = (uint16)(len(name))
-	str.name = ([]byte)(name)
-	str.size += (int)(str.nameLength)
-}
+	kind := data.ReadByte(ptr); ptr++
 
-func (str *runestring) GetBytes(d serial.Data, ptr int) int {
-	ptr = d.WriteByte(ptr, str.containerType)
-	ptr = d.WriteByte(ptr, RuneStringKind)
-	ptr = d.WriteUInt16(ptr, str.nameLength)
-	ptr = d.WriteBytes(ptr, str.name)
-	ptr = d.WriteInt32(ptr, (int32)(str.length))
-	ptr = d.WriteRuneArray(ptr, str.string)
-	return ptr
-}
+	l, name := data.ReadString(ptr)
+	ptr += l + 2
+	print("\t" + name + ": ")
 
-func (str *runestring) GetSize() int {
-	return str.size + (int)(str.nameLength) + serial.GetSize(serial.Rune) * str.length
+	switch kind {
+	case serial.Byte:
+		l = (int)(data.ReadInt32(ptr)); ptr += 4
+		str := make([]byte, l)
+		for i := 0; i < l; i++ {
+			str[i] = data.ReadByte(ptr)
+			ptr++
+		}
+		println("\"" + (string)(str) + "\"")
+		return ByteString(name, (string)(str))
+	case serial.Rune:
+		l = (int)(data.ReadInt32(ptr)); ptr += 4
+		str := make([]rune, l)
+		for i := 0; i < l; i++ {
+			str[i] = data.ReadRune(ptr)
+			ptr += 4
+		}
+		println("\"" + (string)(str) + "\"")
+		return RuneString(name, (string)(str))
+	}
+
+	return nil
 }

@@ -14,8 +14,7 @@ type object struct {
 	// TODO Implement hashtable for object offsets in byte array
 	fields        []*field
 	arrays        []*array
-	bstrings      []*bytestring
-	rstrings      []*runestring
+	strings       []*strings
 }
 
 func SerialObject(name string) *object {
@@ -45,18 +44,13 @@ func (obj *object) AddArray(a *array) {
 	obj.size += a.GetSize()
 }
 
-func (obj *object) AddByteString(str *bytestring) {
-	obj.bstrings = append(obj.bstrings, str)
-	obj.size += str.GetSize()
-}
-
-func (obj *object) AddRuneString(str *runestring) {
-	obj.rstrings = append(obj.rstrings, str)
+func (obj *object) AddString(str *strings) {
+	obj.strings = append(obj.strings, str)
 	obj.size += str.GetSize()
 }
 
 func (obj *object) GetSize() int {
-	return obj.size + 4
+	return 9 + obj.size
 }
 
 func (obj *object) GetBytes(d serial.Data, ptr int) int {
@@ -74,13 +68,8 @@ func (obj *object) GetBytes(d serial.Data, ptr int) int {
 		ptr = a.GetBytes(d, ptr)
 	}
 
-	ptr = d.WriteUInt16(ptr, uint16(len(obj.bstrings)))
-	for _, s := range obj.bstrings {
-		ptr = s.GetBytes(d, ptr)
-	}
-
-	ptr = d.WriteUInt16(ptr, uint16(len(obj.rstrings)))
-	for _, s := range obj.rstrings {
+	ptr = d.WriteUInt16(ptr, uint16(len(obj.strings)))
+	for _, s := range obj.strings {
 		ptr = s.GetBytes(d, ptr)
 	}
 
@@ -114,14 +103,8 @@ func ObjectFromBytes(data serial.Data, offset int) *object {
 
 	bc := (int)(data.ReadUInt16(ptr)); ptr += 2
 	for i := 0; i < bc; i++ {
-		obj.AddByteString(nil)
-		ptr += obj.bstrings[i].GetSize()
-	}
-
-	rc := (int)(data.ReadUInt16(ptr)); ptr += 2
-	for i := 0; i < rc; i++ {
-		obj.AddRuneString(nil)
-		ptr += obj.rstrings[i].GetSize()
+		obj.AddString(StringFromBytes(data, ptr))
+		ptr += obj.strings[i].GetSize()
 	}
 
 	return obj

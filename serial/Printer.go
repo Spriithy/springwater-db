@@ -18,14 +18,22 @@ func PrintData(data Data) {
 	for ; i <= len(data); i++ {
 		fmt.Printf("%02X ", data[i - 1])
 
+		if i % 4 == 0 {
+			print(" ")
+		}
 		if i % 16 == 0 {
 			fmt.Printf("\n%06x | ", i)
 		}
 	}
 
 	for {
-		if (i - 1) % 16 == 0 { break }
+		if (i - 1) % 16 == 0 {
+			break
+		}
 		print("-- ")
+		if i % 4 == 0 {
+			print(" ")
+		}
 		i++
 	}
 
